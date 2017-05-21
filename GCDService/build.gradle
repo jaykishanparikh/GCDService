@@ -1,0 +1,36 @@
+println "GCDService project build starts..."
+
+// Applying required plugins
+apply plugin: 'java'
+apply plugin: 'war'
+
+// project version
+version = '1.0'
+
+// War file name
+war.baseName = 'GCDService'
+
+// Web directory, this overrides the default value "webapp"
+project.webAppDirName = 'WebContent'
+
+// gradle build directory
+buildDir = 'gradle_build'
+
+// JDK version source compatibility
+sourceCompatibility = 1.6
+
+repositories {
+   mavenCentral()
+}
+println "env var ${System.getenv()['MW_HOME']}"
+dependencies {
+   compile 'javax.jms:jms-api:1.1-rev-1'
+   compile 'javax.ws.rs:jsr311-api:1.1.1'
+}
+
+// gradle porject source dir
+sourceSets {
+  main.java.srcDir 'src'
+}
+
+println "GCDService project build ends..."
